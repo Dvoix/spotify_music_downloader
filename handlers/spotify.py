@@ -63,4 +63,3 @@ async def handle_spotify_link(message: Message):
                 await message.answer(f"❌ Failed to download: {track_info['full_name']}")
 
         await status_msg.edit_text(f"✅ Finished! Sent {total} tracks.")
- 
