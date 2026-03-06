@@ -1,10 +1,17 @@
 import asyncio
+import logging
 from core.bot import bot, dp
-from handlers import start, help
+from handlers import start, help, spotify
 
 async def main():
-    print("Bot started!")
-    await dp.start_polling(bot)
+    try:
+        logging.info("Bot is starting...")
+        await dp.start_polling(bot)
+    finally:
+        await bot.session.close()
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        logging.info("Bot stopped by user")
