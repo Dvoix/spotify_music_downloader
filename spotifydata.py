@@ -157,17 +157,17 @@ def download_track(search_query, output_dir=DOWNLOAD_DIR):
     outtmpl = os.path.join(output_dir, '%(title)s.%(ext)s')
 
     ydl_opts = {
-        'format': 'bestaudio/best',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-        }],
-        'outtmpl': outtmpl,
-        'quiet': True,
-        'noplaylist': True,
-        'ffmpeg_location': FFMPEG_PATH,
-        'logger': MyLogger(),
+           "format": "bestaudio/best",
+    "outtmpl": outtmpl,
+    "quiet": True,
+    "noplaylist": True,
+    "ffmpeg_location": FFMPEG_PATH,
+    "postprocessors": [{
+        "key": "FFmpegExtractAudio",
+        "preferredcodec": "mp3",
+        "preferredquality": "192",
+    }],
+    "logger": MyLogger(),
     }
 
     try:
